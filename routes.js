@@ -10,6 +10,7 @@ router.get('/users', userController.getAllUsers);
 
 router.get('/users/:_id', userController.getUserById);
 
+router.get('/users/getUserByName/:FirstName', userController.getUserByName);
 router.put('/users/:_id', userController.updateUserById);
 
 router.delete('/users/:_id', userController.deleteUserById);

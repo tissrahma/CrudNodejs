@@ -34,7 +34,15 @@ const userController = {
       res.status(500).json({ error: 'Failed to fetch user.' });
     }
   },
-
+  getUserByName: async (req, res) => {
+  
+      const user = await User.findOne({FirstName:req.params.FirstName});
+      if (!user) {
+        return res.status(404).json({ message: 'User not found.' });
+      }
+      res.status(200).json(user._id);
+    
+  },
   updateUserById: async (req, res) => {
     try {
       const updatedUser = await User.findByIdAndUpdate(
